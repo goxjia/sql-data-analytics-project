@@ -1,147 +1,147 @@
-# SQL Data Analysis and Reporting Repository
+# SQL 数据分析与报告仓库
 
-This repository offers a comprehensive collection of SQL scripts designed for in-depth data exploration, analytics, and reporting within a relational database. It's a valuable resource for data analysts and BI professionals seeking to quickly explore, segment, and analyze data effectively. Each script focuses on a specific analytical theme and demonstrates best practices for SQL queries.
+该存储库提供了全面的 SQL 脚本集合，旨在关系型数据库中进行深入的数据探索、分析和报告。对于希望快速探索、细分和有效分析数据的数据分析师和 BI 专业人员来说，这是一个宝贵的资源。每个脚本都侧重于一个特定的分析主题，并演示了 SQL 查询的最佳实践。
 
-## Table of Contents
+## 目录
 
-1.  [Dimensions Exploration](#1-dimensions-exploration)
-2.  [Date Range Exploration](#2-date-range-exploration)
-3.  [Measures Exploration (Key Metrics)](#3-measures-exploration-key-metrics)
-4.  [Magnitude Analysis](#4-magnitude-analysis)
-5.  [Ranking Analysis](#5-ranking-analysis)
-6.  [Change Over Time Analysis](#6-change-over-time-analysis)
-7.  [Cumulative Analysis](#7-cumulative-analysis)
-8.  [Performance Analysis (Year-over-Year, Month-over-Month)](#8-performance-analysis-year-over-year-month-over-month)
-9.  [Data Segmentation Analysis](#9-data-segmentation-analysis)
-10. [Part-to-Whole Analysis](#10-part-to-whole-analysis)
-11. [Product Report (`report_products`)](#11-product-report-report_products)
-12. [Customer Report (`report_customers`)](#12-customer-report-report_customers)
+1.  [维度探索](#1-维度探索)
+2.  [日期范围探索](#2-日期范围探索)
+3.  [度量探索（关键指标）](#3-度量探索关键指标)
+4.  [量级分析](#4-量级分析)
+5.  [排名分析](#5-排名分析)
+6.  [随时间变化分析](#6-随时间变化分析)
+7.  [累积分析](#7-累积分析)
+8.  [绩效分析（同比，环比）](#8-绩效分析同比环比)
+9.  [数据细分分析](#9-数据细分分析)
+10. [部分到整体分析](#10-部分到整体分析)
+11. [产品报告 (`report_products`)](#11-产品报告-report_products)
+12. [客户报告 (`report_customers`)](#12-客户报告-report_customers)
 
 ---
 
-## Breakdown of Insights and Analyses
+## 洞察与分析细分
 
-Here's a detailed overview of the analyses performed by the SQL scripts in this repository:
+以下是此仓库中 SQL 脚本执行的分析的详细概述：
 
-### 1. Dimensions Exploration
+### 1. 维度探索
 
-This section focuses on understanding the unique values within dimension tables, providing foundational insights into your data's categorical structure.
+此部分侧重于理解维度表中的唯一值，为您的数据分类结构提供基础洞察。
 
-* **Customer Countries**: Retrieves a distinct list of countries from which customers originate.
-* **Product Categories**: Lists unique combinations of category, subcategory, and product names.
+* **客户国家**: 检索客户来源国家的唯一列表。
+* **产品类别**: 列出类别、子类别和产品名称的唯一组合。
 
-### 2. Date Range Exploration
+### 2. 日期范围探索
 
-This section determines the temporal boundaries of your key data points, helping you understand the historical data's range.
+此部分确定关键数据点的时间边界，帮助您了解历史数据的范围。
 
-* **Order Dates**: Identifies the earliest and latest order dates and calculates the total duration in months between them.
-* **Customer Birthdates**: Finds the oldest and youngest customer birthdates and calculates their current ages.
+* **订单日期**: 识别最早和最晚的订单日期，并计算它们之间的总持续月数。
+* **客户出生日期**: 找出最年长和最年轻客户的出生日期，并计算他们当前的年龄。
 
-### 3. Measures Exploration (Key Metrics)
+### 3. 度量探索（关键指标）
 
-This section calculates aggregated metrics for quick insights into overall trends and potential anomalies.
+此部分计算聚合指标，以快速洞察整体趋势和潜在异常。
 
-* **Total Sales**: Calculates the sum of all sales amounts.
-* **Total Quantity Sold**: Determines the total number of items sold.
-* **Average Selling Price**: Computes the average price of all sales.
-* **Total Number of Orders**: Counts the total number of distinct orders.
-* **Total Products**: Counts the total number of unique products.
-* **Total Customers**: Counts the total number of customers in the dimension table and also the total number of customers who have placed an order.
-* **Key Business Metrics Report**: Generates a consolidated report showing all key metrics, including total sales, total quantity, average price, total orders, total products, and total customers.
+* **Total Sales (总销售额)**: 计算所有销售额的总和。
+* **Total Quantity Sold (总销售数量)**: 确定销售商品的总数量。
+* **Average Selling Price (平均销售价格)**: 计算所有销售的平均价格。
+* **Total Number of Orders (总订单数)**: 计算不同订单的总数。
+* **Total Products (总产品数)**: 计算唯一产品的总数。
+* **Total Customers (总客户数)**: 计算维度表中的客户总数，以及已下订单的客户总数。
+* **关键业务指标报告**: 生成一份综合报告，显示所有关键指标，包括 Total Sales (总销售额)、Total Quantity (总数量)、Average Price (平均价格)、Total Orders (总订单数)、Total Products (总产品数) 和 Total Customers (总客户数)。
 
-### 4. Magnitude Analysis
+### 4. 量级分析
 
-This section quantifies data and groups results by specific dimensions, ideal for understanding data distribution across categories.
+此部分根据特定维度量化数据并对结果进行分组，非常适合理解跨类别的数据分布。
 
-* **Customers by Country**: Counts the total customers per country.
-* **Customers by Gender**: Counts the total customers per gender.
-* **Products by Category**: Counts the total products within each category.
-* **Average Cost by Category**: Calculates the average cost of products for each category.
-* **Revenue by Category**: Determines the total revenue generated for each product category.
-* **Revenue by Customer**: Calculates the total revenue generated by each individual customer.
-* **Sold Items by Country**: Shows the distribution of sold items across different countries.
+* **按国家/地区划分的客户数**: 计算每个国家的客户总数。
+* **按性别划分的客户数**: 计算每个性别的客户总数。
+* **按类别划分的产品数**: 计算每个类别中的产品总数。
+* **按类别划分的平均成本**: 计算每个类别中产品的平均成本。
+* **按类别划分的收入**: 确定每个产品类别产生的总收入。
+* **按客户划分的收入**: 计算每个客户产生的总收入。
+* **按国家/地区划分的销售商品**: 显示不同国家/地区销售商品的分布。
 
-### 5. Ranking Analysis
+### 5. 排名分析
 
-This section ranks items (e.g., products, customers) based on performance or other metrics, helping to identify top performers or laggards.
+此部分根据性能或其他指标对项目（例如产品、客户）进行排名，有助于识别表现最佳或最差的项。
 
-* **Top 5 Products by Revenue**: Identifies the top 5 products generating the highest revenue using both `TOP` and window functions like `RANK()`.
-* **Worst 5 Products by Sales**: Finds the 5 worst-performing products in terms of sales.
-* **Top 10 Customers by Revenue**: Lists the top 10 customers who have generated the highest revenue.
-* **Customers with Fewest Orders**: Identifies the 3 customers who have placed the fewest orders.
+* **按收入排名前 5 的产品**: 使用 `LIMIT` 和 `RANK()` 等窗口函数识别收入最高的 5 种产品。
+* **销售额最差的 5 种产品**: 找出销售额最差的 5 种产品。
+* **收入排名前 10 的客户**: 列出收入最高的 10 位客户。
+* **订单最少的客户**: 识别下订单最少的 3 位客户。
 
-### 6. Change Over Time Analysis
+### 6. 随时间变化分析
 
-This section tracks trends, growth, and changes in key metrics over time, essential for time-series analysis and identifying seasonality.
+此部分跟踪关键指标随时间变化的趋势、增长和变化，对于时间序列分析和识别季节性至关重要。
 
-* **Sales Performance Over Time**: Analyzes total sales, total customers, and total quantity over time, aggregated by year and month using `YEAR()`/`MONTH()`, `DATETRUNC()`, and `FORMAT()` functions.
+* **销售业绩随时间变化**: 使用 `YEAR()`/`MONTH()`、 和 `DATE_FORMAT()` 函数按年和月聚合，分析 Total Sales (总销售额)、Total Customers (总客户数) 和 Total Quantity (总数量) 随时间的变化。
 
-### 7. Cumulative Analysis
+### 7. 累积分析
 
-This section calculates running totals or moving averages for key metrics to track performance cumulatively, useful for growth analysis or identifying long-term trends.
+此部分计算关键指标的运行总计或移动平均值，以累积方式跟踪性能，有助于增长分析或识别长期趋势。
 
-* **Running Total and Moving Average Sales**: Calculates the total sales per year, the running total of sales, and the moving average price over time.
+* **Running Total and Moving Average Sales (运行总计和移动平均销售额)**: 计算每年的 Total Sales (总销售额)、销售额的运行总计以及随时间变化的平均价格。
 
-### 8. Performance Analysis (Year-over-Year, Month-over-Month)
+### 8. 绩效分析（同比，环比）
 
-This section measures the performance of products over time by comparing current sales to average sales and previous year's sales, ideal for benchmarking and identifying high-performing entities.
+此部分通过将当前销售额与平均销售额和上一年销售额进行比较，衡量产品随时间变化的绩效，非常适合基准测试和识别高绩效实体。
 
-* **Yearly Product Performance**: Analyzes product sales by year, comparing `current_sales` to `avg_sales` (partitioned by product) and `py_sales` (previous year's sales) using `LAG()`. It also includes a `CASE` statement to indicate whether sales are "Above Avg", "Below Avg", "Increase", "Decrease", or "No Change".
+* **年度产品绩效**: 按年份分析产品销售额，使用 `LAG()` 将 `current_sales` 与 `avg_sales`（按产品分区）和 `py_sales` (上一年销售额) 进行比较。它还包含一个 `CASE` 语句，用于指示销售额是“高于平均水平”、“低于平均水平”、“增加”、“减少”还是“无变化”。
 
-### 9. Data Segmentation Analysis
+### 9. 数据细分分析
 
-This section groups data into meaningful categories for targeted insights, enabling customer segmentation, product categorization, or regional analysis.
+此部分将数据分组为有意义的类别，以获取有针对性的洞察，从而实现客户细分、产品分类或区域分析。
 
-* **Product Cost Segmentation**: Segments products into cost ranges ('Below 100', '100-500', '500-1000', 'Above 1000') and counts the number of products in each segment.
-* **Customer Spending Segmentation**: Groups customers into "VIP", "Regular", and "New" segments based on their spending behavior and lifespan, then counts the total customers in each group. VIP customers have at least 12 months of history and spend more than €5,000; Regular customers have at least 12 months of history and spend €5,000 or less; New customers have a lifespan of less than 12 months.
+* **产品成本细分**: 将产品细分为成本范围（“低于 100”、“100-500”、“500-1000”、“高于 1000”），并计算每个范围内的产品数量。
+* **客户消费细分**: 根据客户的消费行为和生命周期将客户分为“VIP”、“Regular”和“New”细分，然后计算每个组中的客户总数。VIP 客户的交易历史至少 12 个月且总销售额超过 €5,000；Regular 客户的交易历史至少 12 个月且总销售额等于或低于 €5,000；New 客户的生命周期少于 12 个月。
 
-### 10. Part-to-Whole Analysis
+### 10. 部分到整体分析
 
-This section compares performance or metrics across dimensions to evaluate differences between categories, useful for A/B testing or regional comparisons.
+此部分比较跨维度的性能或指标，以评估类别之间的差异，适用于 A/B 测试或区域比较。
 
-* **Category Contribution to Overall Sales**: Calculates each category's total sales, the overall total sales, and the percentage contribution of each category to the overall sales.
+* **类别对总销售额的贡献**: 计算每个类别的 Total Sales (总销售额)、总销售额以及每个类别对总销售额的贡献百分比。
 
-### 11. Product Report (`report_products`)
+### 11. 产品报告 (`report_products`)
 
-This SQL view provides a comprehensive and consolidated view of product performance and characteristics.
+此 SQL 视图提供了一个全面且整合的产品性能和特性视图。
 
-**Purpose:**
-* To consolidate key product metrics and behaviors.
+**目的：**
+* 整合关键产品指标和行为。
 
-**Highlights:**
-* Gathers essential fields such as product name, category, subcategory, and cost.
-* Segments products by revenue into 'High-Performers' (total sales > €50,000), 'Mid-Range' (€10,000 <= total sales <= €50,000), or 'Low-Performers' (total sales < €10,000).
-* Aggregates product-level metrics including:
-    * Total orders
-    * Total sales
-    * Total quantity sold
-    * Total unique customers
-    * Lifespan (in months, from first to last order date)
-    * Average selling price
-* Calculates valuable Key Performance Indicators (KPIs):
-    * Recency (months since last sale)
-    * Average Order Revenue (AOR)
-    * Average Monthly Revenue
+**亮点：**
+* 收集产品名称、类别、子类别和成本等基本字段。
+* 根据收入将产品细分为“High-Performers”(总销售额 > €50,000)、“Mid-Range”（€10,000 <= 总销售额 <= €50,000）或“Low-Performers”（总销售额 < €10,000）。
+* 聚合产品级指标，包括：
+    * Total orders (总订单数)
+    * Total sales (总销售额)
+    * Total quantity sold (总销售数量)
+    * Total unique customers (总独立客户数)
+    * Lifespan (in months) (生命周期（月）) (从第一个到最后一个订单日期)
+    * Average selling price (平均销售价格)
+* 计算有价值的关键绩效指标 (KPIs)：
+    * Recency (months since last sale) (距上次销售的月数)
+    * Average Order Revenue (AOR) (平均订单收入)
+    * Average Monthly Revenue (平均每月收入)
 
-### 12. Customer Report (`report_customers`)
+### 12. 客户报告 (`report_customers`)
 
-This SQL view offers detailed insights into customer behavior and demographics.
+此 SQL 视图提供有关客户行为和人口统计的详细洞察。
 
-**Purpose:**
-* To consolidate key customer metrics and behaviors.
+**目的：**
+* 整合关键客户指标和行为。
 
-**Highlights:**
-* Gathers essential fields such as customer name, age, and transaction details.
-* Segments customers into:
-    * **Age Groups**: 'Under 20', '20-29', '30-39', '40-49', and '50 and above'.
-    * **Customer Categories**: 'VIP' (lifespan >= 12 months AND total sales > €5,000), 'Regular' (lifespan >= 12 months AND total sales <= €5,000), or 'New' (lifespan < 12 months).
-* Aggregates customer-level metrics including:
-    * Total orders
-    * Total sales
-    * Total quantity purchased
-    * Total products purchased
-    * Lifespan (in months, from first to last order date)
-* Calculates valuable Key Performance Indicators (KPIs):
-    * Recency (months since last order)
-    * Average order value (AOV)
-    * Average monthly spend
+**亮点：**
+* 收集客户姓名、年龄和交易详情等基本字段。
+* 将客户细分为：
+    * **Age Groups (年龄组)**: “Under 20”(20 岁以下)、“20-29”、“30-39”、“40-49”和“50 and above”(50 岁及以上)。
+    * **Customer Categories (客户类别)**: “VIP”（Lifespan (生命周期) >= 12 个月且 Total sales (总销售额) > €5,000）、“Regular”（Lifespan (生命周期) >= 12 个月且 Total sales (总销售额) <= €5,000）或“New”（Lifespan (生命周期) < 12 个月）。
+* 聚合客户级指标，包括：
+    * Total orders (总订单数)
+    * Total sales (总销售额)
+    * Total quantity purchased (总购买数量)
+    * Total products purchased (总购买产品数)
+    * Lifespan (in months) (生命周期（月）) (从第一个到最后一个订单日期)
+* 计算有价值的关键绩效指标 (KPIs)：
+    * Recency (months since last order) (距上次订单的月数)
+    * Average order value (AOV) (平均订单价值)
+    * Average monthly spend (平均每月支出)
